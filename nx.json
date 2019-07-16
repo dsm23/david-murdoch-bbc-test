@@ -1,0 +1,18 @@
+{
+  "npmScope": "david-murdoch-bbc-test",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "david-murdoch-bbc-test": {
+      "tags": []
+    },
+    "david-murdoch-bbc-test-e2e": {
+      "tags": []
+    }
+  }
+}
