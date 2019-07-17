@@ -1,10 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Pagination from 'rc-pagination';
+import localeInfo from 'rc-pagination/lib/locale/en_GB';
+import 'rc-pagination/assets/index.css';
+import Brand from '@bbc/psammead-brand';
+import { igbo } from '@bbc/psammead-assets/svgs';
+import { CssBaseline, Container } from '@material-ui/core';
 
 import './app.scss';
 
 export const App = () => {
+  const [pageIndex, setPageIndex] = useState(1);
+
+  const onChange = newPageIndex => setPageIndex(newPageIndex);
   return (
     <div>
+      <CssBaseline />
+      <header role="banner">
+        <Brand
+          product="BBC News"
+          svgHeight={24}
+          maxWidth={280}
+          minWidth={180}
+          svg={igbo}
+          url="https://www.bbc.co.uk/news"
+          borderBottom
+        />
+      </header>
+      <Container maxWidth="sm">
+        <Pagination
+          onChange={onChange}
+          current={pageIndex}
+          total={5}
+          pageSize={1}
+          locale={localeInfo}
+        />
+      </Container>
       <header style={{ textAlign: 'center' }}>
         <h1>Welcome to david-murdoch-bbc-test!</h1>
         <img

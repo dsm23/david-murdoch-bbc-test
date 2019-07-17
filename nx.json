@@ -13,6 +13,9 @@
     },
     "david-murdoch-bbc-test-e2e": {
       "tags": []
+    },
+    "api": {
+      "tags": []
     }
   }
 }
