@@ -1,0 +1,21 @@
+{
+  "__schema": {
+    "types": [
+      {
+        "kind": "UNION",
+        "name": "Model",
+        "possibleTypes": [
+          {
+            "name": "Image"
+          },
+          {
+            "name": "List"
+          },
+          {
+            "name": "Typography"
+          }
+        ]
+      }
+    ]
+  }
+}
