@@ -28,10 +28,12 @@
   },
   "private": true,
   "dependencies": {
+    "@bbc/gel-foundations": "^3.1.0",
     "@bbc/psammead-assets": "^1.0.6",
     "@bbc/psammead-brand": "^4.1.12",
     "@bbc/psammead-headings": "^3.0.0",
     "@bbc/psammead-image": "^1.1.0",
+    "@bbc/psammead-navigation": "^2.1.0",
     "@bbc/psammead-paragraph": "^2.1.0",
     "@material-ui/core": "^4.2.0",
     "@nestjs/common": "^6.2.4",

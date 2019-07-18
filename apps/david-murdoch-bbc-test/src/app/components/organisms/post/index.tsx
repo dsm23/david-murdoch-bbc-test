@@ -33,10 +33,12 @@ const Post: FunctionComponent<RouteComponentProps> = ({
         {({ data, loading, error }) => {
           if (loading) return <div>Loading...</div>;
           if (error) return <p>ERROR: {error.message}</p>;
-          // return <pre>{JSON.stringify(data.article.body, null, 2)}</pre>;
-          return data && data.article ? (
-            <Article body={data.article.body} title={data.article.title} />
-          ) : null;
+          return (
+            data &&
+            data.article && (
+              <Article body={data.article.body} title={data.article.title} />
+            )
+          );
         }}
       </Query>
     </>
