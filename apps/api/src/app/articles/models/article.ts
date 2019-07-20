@@ -11,7 +11,7 @@ export class Article {
   title: string;
 
   @Field({ nullable: true })
-  rank: number;
+  rank?: number;
 
   @Field(type => [Body])
   body: Body[];

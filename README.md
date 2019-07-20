@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3b9cfa6a-d71c-4b6e-8dc6-9b86833800eb/deploy-status)](https://app.netlify.com/sites/david-murdoch-bbc-test/deploys)
+
 # DavidMurdochBbcTest
 
 This project was generated using [Nx](https://nx.dev).
