@@ -1,11 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { NewArticleInput } from './dto/new-article.input';
+import { ArticleInput } from './dto/article.input';
 import { ArticlesArgs } from './dto/articles.args';
 import { Article } from './models/article';
 
 import initialData from './initialData.json';
-
-console.log(initialData);
 
 @Injectable()
 export class ArticlesService {
@@ -16,7 +14,7 @@ export class ArticlesService {
    * Left for demonstration purposes
    */
 
-  async create(article: NewArticleInput): Promise<Article> {
+  async create(article: ArticleInput): Promise<any> {
     const newArticle: Article = { id: this.articles.length, ...article};
     this.articles.push(newArticle);
     return newArticle;
@@ -30,7 +28,12 @@ export class ArticlesService {
     return this.articles;
   }
 
-  async remove(id: string): Promise<boolean> {
-    return true;
+  async changeRank(id: number, rank: number): Promise<Article> {
+    const newArticle: Article = await this.findOneById(id);
+
+    newArticle.rank = rank;
+
+    this.articles.splice(id, 1, newArticle);
+    return newArticle;
   }
 }

@@ -1,4 +1,4 @@
-import { createUnionType, Field, ID, ObjectType } from 'type-graphql';
+import { createUnionType } from 'type-graphql';
 
 import { Image } from './image';
 import { List } from './list';
@@ -19,24 +19,3 @@ export const ModelUnion = createUnionType({
     }
   },
 });
-
-// @ObjectType()
-// export class Model {
-//   @Field({ nullable: true })
-//   text: string;
-
-//   @Field({ nullable: true })
-//   url: string;
-
-//   @Field({ nullable: true })
-//   altText: string;
-
-//   @Field({ nullable: true })
-//   height: string;
-
-//   @Field({ nullable: true })
-//   width: string;
-
-//   @Field(type => [String])
-//   items: string[];
-// }

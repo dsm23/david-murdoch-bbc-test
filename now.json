@@ -1,0 +1,16 @@
+{
+  "github": {
+    "autoJobCancelation": true
+  },
+  "public": true,
+  "version": 2,
+  "builds": [
+    { "src": "dist/apps/david-murdoch-bbc-test/index.html", "use": "@now/static" },
+    { "src": "/dist/apps/api/main.js", "use": "@now/node" },
+    { "src": "/dist/apps/api/main.map.js", "use": "@now/node" }
+  ],
+  "routes": [
+    { "src": "/api", "dest": "/dist/apps/api/main.js" },
+    { "src": "/", "dest": "dist/apps/david-murdoch-bbc-test/index.html" }
+  ]
+}

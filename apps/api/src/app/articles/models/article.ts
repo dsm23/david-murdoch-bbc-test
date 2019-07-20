@@ -10,6 +10,9 @@ export class Article {
   @Field()
   title: string;
 
+  @Field({ nullable: true })
+  rank: number;
+
   @Field(type => [Body])
   body: Body[];
 }

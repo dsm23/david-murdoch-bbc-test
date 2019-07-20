@@ -1,16 +1,6 @@
-import { Field, ObjectType } from 'type-graphql';
+import { ObjectType } from 'type-graphql';
 
-@ObjectType()
-export class Image {
-  @Field()
-  url: string;
+import { IImage } from '../interfaces/image-interface';
 
-  @Field()
-  altText: string;
-
-  @Field()
-  height: string;
-
-  @Field()
-  width: string;
-}
+@ObjectType({ implements: IImage })
+export class Image extends IImage {}

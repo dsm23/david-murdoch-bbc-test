@@ -1,10 +1,6 @@
-import { Field, ObjectType } from 'type-graphql';
+import { ObjectType } from 'type-graphql';
 
-@ObjectType()
-export class List {
-  @Field()
-  type: string;
+import { IList } from '../interfaces/list-interface';
 
-  @Field(type => [String])
-  items: string[];
-}
+@ObjectType({ implements: IList })
+export class List extends IList {}

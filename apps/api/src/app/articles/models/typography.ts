@@ -1,7 +1,6 @@
-import { Field, ObjectType } from 'type-graphql';
+import { ObjectType } from 'type-graphql';
 
-@ObjectType()
-export class Typography {
-  @Field()
-  text: string;
-}
+import { ITypography } from '../interfaces/typography-interface';
+
+@ObjectType({ implements: ITypography })
+export class Typography extends ITypography {}

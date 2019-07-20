@@ -7,6 +7,7 @@
 type Article {
   id: ID!
   title: String!
+  rank: Float
   body: [Body!]!
 }
 
@@ -18,14 +19,30 @@ type Body {
 """Date custom scalar type"""
 scalar Date
 
-type Image {
+interface IImage {
   url: String!
   altText: String!
   height: String!
   width: String!
 }
 
-type List {
+interface IList {
+  type: String!
+  items: [String!]!
+}
+
+type Image implements IImage {
+  url: String!
+  altText: String!
+  height: String!
+  width: String!
+}
+
+interface ITypography {
+  text: String!
+}
+
+type List implements IList {
   type: String!
   items: [String!]!
 }
@@ -33,29 +50,9 @@ type List {
 union Model = Image | List | Typography
 
 type Mutation {
-  addArticle(newArticleData: NewArticleInput!): Article!
-  removeArticle(id: String!): Boolean!
+  rankArticle(rank: Float!, id: Float!): Article!
   addRecipe(newRecipeData: NewRecipeInput!): Recipe!
   removeRecipe(id: String!): Boolean!
-}
-
-input NewArticleInput {
-  title: String!
-  body: NewBodyInput!
-}
-
-input NewBodyInput {
-  type: String!
-  model: NewModelInput!
-}
-
-input NewModelInput {
-  text: String!
-  url: String!
-  altText: String!
-  height: String!
-  width: String!
-  ingredients: [String!]!
 }
 
 input NewRecipeInput {
@@ -80,10 +77,10 @@ type Recipe {
 }
 
 type Subscription {
-  articleAdded: Article!
+  rankChanged: Article!
   recipeAdded: Recipe!
 }
 
-type Typography {
+type Typography implements ITypography {
   text: String!
 }

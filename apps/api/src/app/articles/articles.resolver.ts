@@ -1,7 +1,7 @@
 import { NotFoundException } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { PubSub } from 'apollo-server-express';
-import { NewArticleInput } from './dto/new-article.input';
+// import { ArticleInput } from './dto/article.input';
 import { ArticlesArgs } from './dto/articles.args';
 import { Article } from './models/article';
 import { ArticlesService } from './articles.service';
@@ -26,22 +26,23 @@ export class ArticlesResolver {
     return this.articlesService.findAll(articlesArgs);
   }
 
-  @Mutation(returns => Article)
-  async addArticle(
-    @Args('newArticleData') newArticleData: NewArticleInput,
-  ): Promise<Article> {
-    const article = await this.articlesService.create(newArticleData);
-    pubSub.publish('articleAdded', { articleAdded: article });
-    return article;
-  }
+  // @Mutation(returns => Article)
+  // async addArticle(@Args('newArticleData') newArticleData: ArticleInput): Promise<Article> {
+  //   const article = await this.articlesService.create(newArticleData);
+  //   pubSub.publish('articleAdded', { articleAdded: article });
+  //   return article;
+  // }
 
-  @Mutation(returns => Boolean)
-  async removeArticle(@Args('id') id: string) {
-    return this.articlesService.remove(id);
+  @Mutation(returns => Article)
+  async rankArticle(@Args('id') id: number,  @Args('rank') rank: number): Promise<Article> {
+
+    const article = await this.articlesService.changeRank(id, rank);
+    pubSub.publish('rankChanged', { rankChanged: article });
+    return article
   }
 
   @Subscription(returns => Article)
-  articleAdded() {
-    return pubSub.asyncIterator('articleAdded');
+  rankChanged() {
+    return pubSub.asyncIterator('rankChanged');
   }
 }

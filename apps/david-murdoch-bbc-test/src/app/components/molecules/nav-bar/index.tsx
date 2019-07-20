@@ -28,8 +28,8 @@ const NavBar: FunctionComponent<RouteComponentProps> = ({ location }) => (
             label: 'Home',
           },
           {
-            href: '/new',
-            label: 'New Article',
+            href: '/board',
+            label: 'Rankings Board',
           },
         ].map(({ href, label }) => (
           <Link to={href} key={label}>
