@@ -2,13 +2,9 @@ import { Max, Min } from 'class-validator';
 import { ArgsType, Field, Int } from 'type-graphql';
 
 @ArgsType()
-export class ArticlesArgs {
+export class ArticleArgs {
   @Field(type => Int)
   @Min(0)
-  limit = 1;
-
-  @Field(type => Int)
-  @Min(1)
-  @Max(50)
-  offset = 1;
+  @Max(4)
+  id = 0;
 }

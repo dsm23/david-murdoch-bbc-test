@@ -52,7 +52,7 @@ type Mutation {
 
 type Query {
   article(id: Float!): Article!
-  articles(skip: Int = 0, take: Int = 25): [Article!]!
+  articles(limit: Int = 1, offset: Int = 1): [Article!]!
 }
 
 type Subscription {

@@ -10,38 +10,10 @@ import {
   TableRow,
 } from '@material-ui/core';
 
+import SubscribedTable from '../../molecules/subscribed-table';
+
 import getRankings from '../../../graphql/getRankings';
 import rankSubscription from '../../../graphql/subscribeToRank';
-
-const DavidTest = ({ articles, refetch, subscribeToMore }) => {
-  useEffect(() => {
-    subscribeToMore({
-      document: rankSubscription,
-      updateQuery: () => refetch(),
-    });
-  }, [articles, subscribeToMore]);
-
-  return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Article Title</TableCell>
-          <TableCell align="right">Rank (/10)</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {articles.map(({ title, rank }) => (
-          <TableRow key={title}>
-            <TableCell component="th" scope="row">
-              {title}
-            </TableCell>
-            <TableCell align="right">{rank}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  );
-};
 
 const RankingsBoard: FunctionComponent<{}> = () => (
   <>
@@ -49,13 +21,12 @@ const RankingsBoard: FunctionComponent<{}> = () => (
       Rankings Board
     </Headline>
     <Query query={getRankings}>
-      {({ data, loading, error, refetch, subscribeToMore }) => {
+      {({ data, loading, error, subscribeToMore }) => {
         if (loading) return <div>Loading...</div>;
         if (error) return <p>ERROR: {error.message}</p>;
         return (
-          <DavidTest
+          <SubscribedTable
             articles={data.articles}
-            refetch={refetch}
             subscribeToMore={subscribeToMore}
           />
         );
