@@ -16,9 +16,6 @@ type Body {
   model: Model!
 }
 
-"""Date custom scalar type"""
-scalar Date
-
 interface IImage {
   url: String!
   altText: String!
@@ -51,34 +48,15 @@ union Model = Image | List | Typography
 
 type Mutation {
   rankArticle(rank: Float!, id: Float!): Article!
-  addRecipe(newRecipeData: NewRecipeInput!): Recipe!
-  removeRecipe(id: String!): Boolean!
-}
-
-input NewRecipeInput {
-  title: String!
-  description: String
-  ingredients: [String!]!
 }
 
 type Query {
   article(id: Float!): Article!
   articles(skip: Int = 0, take: Int = 25): [Article!]!
-  recipe(id: String!): Recipe!
-  recipes(skip: Int = 0, take: Int = 25): [Recipe!]!
-}
-
-type Recipe {
-  id: ID!
-  title: String!
-  description: String
-  creationDate: Date!
-  ingredients: [String!]!
 }
 
 type Subscription {
   rankChanged: Article!
-  recipeAdded: Recipe!
 }
 
 type Typography implements ITypography {

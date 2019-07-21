@@ -1,4 +1,6 @@
-const query = `
+import gql from 'graphql-tag';
+
+const query = gql`
   query getRankings {
     articles {
       id

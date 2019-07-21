@@ -4,4 +4,5 @@
 export const environment = {
   production: false,
   endPoint: 'http://localhost:3333/graphql',
+  websocket: 'ws://localhost:3333/graphql',
 };

@@ -2721,6 +2721,14 @@ apollo-link-http@^1.5.15:
     apollo-link-http-common "^0.2.14"
     tslib "^1.9.3"
 
+apollo-link-ws@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/apollo-link-ws/-/apollo-link-ws-1.0.18.tgz#281b9b0826d5fc7e2aa14d2784c5193d8b761112"
+  integrity sha512-nrWh9m7k1FQw1AK1GB1VTJS0o01cpsP2RYmTAh2j+P4lL2/72WgsblhbuF+yA1/jsgVrzg6xa+TNw3UwgGp3+g==
+  dependencies:
+    apollo-link "^1.2.12"
+    tslib "^1.9.3"
+
 apollo-link@^1.0.0, apollo-link@^1.2.12, apollo-link@^1.2.3:
   version "1.2.12"
   resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.12.tgz#014b514fba95f1945c38ad4c216f31bcfee68429"
@@ -12243,7 +12251,7 @@ stylus@0.54.5:
     sax "0.5.x"
     source-map "0.1.x"
 
-subscriptions-transport-ws@^0.9.11:
+subscriptions-transport-ws@^0.9.11, subscriptions-transport-ws@^0.9.16:
   version "0.9.16"
   resolved "https://registry.yarnpkg.com/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.16.tgz#90a422f0771d9c32069294c08608af2d47f596ec"
   integrity sha512-pQdoU7nC+EpStXnCfh/+ho0zE0Z+ma+i7xvj7bkXKb1dvYHSZxgRPaU6spRP+Bjzow67c/rRDoix5RT0uU9omw==

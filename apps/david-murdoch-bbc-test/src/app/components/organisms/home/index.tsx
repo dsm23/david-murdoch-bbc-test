@@ -1,14 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
 
 import Heading from '../../atoms/heading';
 
-import getArticleTitles from '../../../queries/getArticleTitles';
+import getArticleTitles from '../../../graphql/getArticleTitles';
 
 const Home: FunctionComponent<{}> = () => (
-  <Query query={gql(getArticleTitles)}>
+  <Query query={getArticleTitles}>
     {({ data, loading, error }) => {
       if (loading) return <div>Loading...</div>;
       if (error) return <p>ERROR: {error.message}</p>;

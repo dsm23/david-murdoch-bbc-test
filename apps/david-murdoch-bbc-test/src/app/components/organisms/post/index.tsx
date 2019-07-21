@@ -1,14 +1,17 @@
 import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+
 import Pagination from 'rc-pagination';
 import localeInfo from 'rc-pagination/lib/locale/en_GB';
 import 'rc-pagination/assets/index.css';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+import { Mutation, Query } from 'react-apollo';
 
 import Article from '../../molecules/article';
+import PostForm from '../../molecules/post-form';
 
-import getArticle from '../../../queries/getArticle';
+import getArticle from '../../../graphql/getArticle';
+import mutateRank from '../../../graphql/mutateRank';
+import davidtest from '../../../graphql/subscribeToRank';
 
 const Post: FunctionComponent<RouteComponentProps> = ({
   history,
@@ -26,17 +29,38 @@ const Post: FunctionComponent<RouteComponentProps> = ({
         pageSize={1}
         locale={localeInfo}
       />
-      <Query
-        query={gql(getArticle)}
-        variables={{ id: parseInt(urlIndex, 10) - 1 }}
-      >
+      <Query query={getArticle} variables={{ id: parseInt(urlIndex, 10) - 1 }}>
         {({ data, loading, error }) => {
           if (loading) return <div>Loading...</div>;
           if (error) return <p>ERROR: {error.message}</p>;
           return (
             data &&
             data.article && (
-              <Article body={data.article.body} title={data.article.title} />
+              <>
+                <Article {...data.article} />
+                <Mutation mutation={mutateRank}>
+                  {mutateRank => (
+                    <PostForm
+                      initialValues={{
+                        rank: 5,
+                      }}
+                      onSubmit={async ({ rank }) => {
+                        try {
+                          await mutateRank({
+                            variables: {
+                              id: urlIndex - 1,
+                              rank,
+                            },
+                          });
+                          return true;
+                        } catch {
+                          return false;
+                        }
+                      }}
+                    />
+                  )}
+                </Mutation>
+              </>
             )
           );
         }}
