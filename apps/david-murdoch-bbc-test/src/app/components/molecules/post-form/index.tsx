@@ -15,7 +15,7 @@ import { environment } from '../../../../environments/environment';
 const PostForm = ({ initialValues, onSubmit }) => {
   const [open, setOpen] = useState(false);
 
-  function handleClick(onSubmit) {
+  function handleClick() {
     setOpen(true);
     return onSubmit;
   }
@@ -30,7 +30,7 @@ const PostForm = ({ initialValues, onSubmit }) => {
 
   return (
     <Form
-      onSubmit={values => handleClick(onSubmit)(values)}
+      onSubmit={values => handleClick()(values)}
       initialValues={initialValues}
     >
       {({
