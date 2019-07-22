@@ -1,9 +1,13 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 import { SubHeading } from '@bbc/psammead-headings';
 import { latin } from '@bbc/gel-foundations/scripts';
 
-const Heading: FunctionComponent<{}> = ({ children }) => (
-  <SubHeading script={latin} service="news">
+interface Props {
+  invariant?: ReactNode;
+}
+
+const Heading: FunctionComponent<Props> = ({ children, invariant }) => (
+  <SubHeading script={latin} service="news" as={invariant}>
     {children}
   </SubHeading>
 );

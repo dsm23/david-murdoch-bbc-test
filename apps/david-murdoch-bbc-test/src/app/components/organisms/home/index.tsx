@@ -14,11 +14,9 @@ const Home: FunctionComponent<{}> = () => (
       return (
         <ol>
           {data.articles.map(({ id, title }) => (
-            <li key={`${id}-${title}`}>
-              <Link to={`/${parseInt(id, 10) + 1}`}>
-                <Heading>{title}</Heading>
-              </Link>
-            </li>
+            <Heading invariant="li" key={`${id}-${title}`}>
+              <Link to={`/${parseInt(id, 10) + 1}`}>{title}</Link>
+            </Heading>
           ))}
         </ol>
       );
