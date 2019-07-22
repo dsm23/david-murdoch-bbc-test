@@ -11,7 +11,6 @@ import PostForm from '../../molecules/post-form';
 
 import getArticle from '../../../graphql/getArticle';
 import mutateRank from '../../../graphql/mutateRank';
-import davidtest from '../../../graphql/subscribeToRank';
 
 const Post: FunctionComponent<RouteComponentProps> = ({
   history,
@@ -30,14 +29,14 @@ const Post: FunctionComponent<RouteComponentProps> = ({
         locale={localeInfo}
       />
       <Query query={getArticle} variables={{ id: parseInt(urlIndex, 10) - 1 }}>
-        {({ data, loading, error }) => {
+        {({ data, loading, error, client }) => {
           if (loading) return <div>Loading...</div>;
           if (error) return <p>ERROR: {error.message}</p>;
           return (
             data &&
             data.article && (
               <>
-                <Article {...data.article} />
+                <Article {...data.article} client={client} />
                 <Mutation mutation={mutateRank}>
                   {mutateRank => (
                     <PostForm
