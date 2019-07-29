@@ -2,6 +2,49 @@
 
 # DavidMurdochBbcTest
 
+## Development
+
+To run development servers:
+
+```
+yarn start && yarn start:api
+```
+
+webapp is served on [http://localhost:4200](http://localhost:4200).
+
+graphql playground is served on [http://localhost:3333/graphql](http://localhost:3333/graphql).
+
+example query:
+
+```
+{
+  articles {
+    id
+    title
+    __typename
+    body {
+      type
+      model {
+        ... on Image {
+          url
+          altText
+          height
+          width
+        }
+        ... on List {
+          type
+          items
+        }
+        ... on Typography {
+          text
+        }
+      }
+    }
+  }
+}
+```
+
+
 This project was generated using [Nx](https://nx.dev).
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>

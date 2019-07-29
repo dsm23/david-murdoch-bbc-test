@@ -23,8 +23,8 @@ export class ArticlesService {
     return this.articles.find(article => article.id === id);
   }
 
-  async findAll(articlesArgs: ArticlesArgs): Promise<Article[]> {
-    return this.articles;
+  async findAll({ skip, take }: ArticlesArgs): Promise<Article[]> {
+    return this.articles.slice(skip, skip + take);
   }
 
   async changeRank(id: number, rank: number): Promise<Article> {

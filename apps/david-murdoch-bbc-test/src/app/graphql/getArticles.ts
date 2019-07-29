@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 const query = gql`
-  query getArticles($id: Float!) {
-    article(id: $id) {
+  query getArticles($skip: Int, $take: Int) {
+    articles(skip: $skip, take: $take) {
       id
       title
       body {

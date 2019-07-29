@@ -5,10 +5,11 @@ import { ArgsType, Field, Int } from 'type-graphql';
 export class ArticlesArgs {
   @Field(type => Int)
   @Min(0)
-  limit = 1;
+  @Max(4)
+  skip = 0;
 
   @Field(type => Int)
   @Min(1)
-  @Max(50)
-  offset = 1;
+  @Max(5)
+  take = 5;
 }
