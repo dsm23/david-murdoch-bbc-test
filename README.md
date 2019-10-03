@@ -4,10 +4,16 @@
 
 ## Development
 
-To run development servers:
+To run development servers, in separate terminals:
 
 ```
-yarn start && yarn start:api
+yarn start
+```
+
+and
+
+```
+yarn start:api
 ```
 
 webapp is served on [http://localhost:4200](http://localhost:4200).
