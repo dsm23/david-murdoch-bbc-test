@@ -24,7 +24,8 @@
             "styles": [
               "apps/david-murdoch-bbc-test/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/babel"
           },
           "configurations": {
             "production": {

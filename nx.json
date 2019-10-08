@@ -9,13 +9,13 @@
   },
   "projects": {
     "david-murdoch-bbc-test": {
-      "tags": []
+      "tags": ["frontend"]
     },
     "david-murdoch-bbc-test-e2e": {
       "tags": []
     },
     "api": {
-      "tags": []
+      "tags": ["backend"]
     }
   }
 }
