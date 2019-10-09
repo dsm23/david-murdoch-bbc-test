@@ -9,9 +9,9 @@ import { client } from './apollo';
 
 import NavBar from './components/molecules/nav-bar';
 
-import Home from './components/organisms/home';
-import Post from './components/organisms/post';
-import RankingsBoard from './components/organisms/rankings-board';
+import Home from './components/templates/home';
+import Post from './components/templates/post';
+import RankingsBoard from './components/templates/rankings-board';
 
 export const App = () => (
   <ApolloProvider client={client}>

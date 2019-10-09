@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Headline } from '@bbc/psammead-headings';
 import { latin } from '@bbc/gel-foundations/scripts';
 
@@ -6,8 +6,6 @@ import Heading from '../../atoms/heading';
 import Image from '../../atoms/image';
 import List from '../../atoms/list';
 import Paragraph from '../../atoms/paragraph';
-
-import getArticles from '../../../graphql/getArticles';
 
 const mapList = {
   ordered: 'ol',
@@ -27,25 +25,13 @@ const conversion = model => ({
   paragraph: <Paragraph key={model.text}>{model.text}</Paragraph>,
 });
 
-const Article = ({ title, body, client }) => {
-  useEffect(() => {
-    client.query({
-      query: getArticles,
-      variables: {
-        skip: 0,
-        take: 5,
-      },
-    });
-  }, [client]);
-
-  return (
-    <>
-      <Headline script={latin} service="news">
-        {title}
-      </Headline>
-      {body.map(({ type, model }) => conversion(model)[type])}
-    </>
-  );
-};
+const Article = ({ title, body }) => (
+  <>
+    <Headline script={latin} service="news">
+      {title}
+    </Headline>
+    {body.map(({ type, model }) => conversion(model)[type])}
+  </>
+);
 
 export default Article;
