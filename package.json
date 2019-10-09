@@ -30,6 +30,7 @@
   },
   "private": true,
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.2",
     "@bbc/gel-foundations": "^3.1.0",
     "@bbc/psammead-assets": "^2.5.0",
     "@bbc/psammead-brand": "^5.0.5",
