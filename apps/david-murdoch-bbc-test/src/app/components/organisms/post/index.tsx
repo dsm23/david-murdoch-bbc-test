@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import Pagination from 'rc-pagination';
 import localeInfo from 'rc-pagination/lib/locale/en_GB';
@@ -12,12 +12,10 @@ import PostForm from '../../molecules/post-form';
 import getArticle from '../../../graphql/getArticle';
 import mutateRank from '../../../graphql/mutateRank';
 
-const Post: FunctionComponent<RouteComponentProps> = ({
-  history,
-  match: {
-    params: { urlIndex },
-  },
-}) => {
+const Post: FunctionComponent<{}> = () => {
+  const { urlIndex } = useParams();
+  const history = useHistory();
+
   const onChange = value => history.push(`/${value}`);
   return (
     <>

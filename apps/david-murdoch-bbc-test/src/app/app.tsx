@@ -20,9 +20,15 @@ export const App = () => (
       <NavBar />
       <Container maxWidth="sm">
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/board" component={RankingsBoard} />
-          <Route path="/:urlIndex" component={Post} />
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/board">
+            <RankingsBoard />
+          </Route>
+          <Route path="/:urlIndex">
+            <Post />
+          </Route>
         </Switch>
       </Container>
     </Router>
