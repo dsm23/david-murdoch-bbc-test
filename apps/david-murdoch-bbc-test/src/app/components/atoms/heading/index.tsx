@@ -3,11 +3,11 @@ import { SubHeading } from '@bbc/psammead-headings';
 import { latin } from '@bbc/gel-foundations/scripts';
 
 interface Props {
-  invariant?: ReactNode;
+  variant?: ReactNode;
 }
 
-const Heading: FunctionComponent<Props> = ({ children, invariant }) => (
-  <SubHeading script={latin} service="news" as={invariant}>
+const Heading: FunctionComponent<Props> = ({ children, variant }) => (
+  <SubHeading script={latin} service="news" as={variant}>
     {children}
   </SubHeading>
 );

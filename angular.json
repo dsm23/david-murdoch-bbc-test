@@ -173,6 +173,91 @@
           }
         }
       }
+    },
+    "material-app": {
+      "root": "apps/material-app",
+      "sourceRoot": "apps/material-app",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/next:build",
+          "options": {
+            "root": "apps/material-app",
+            "outputPath": "dist/apps/material-app"
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/next:dev-server",
+          "options": {
+            "buildTarget": "material-app:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "builder": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "material-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/material-app/tsconfig.json",
+              "apps/material-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/material-app/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/material-app/jest.config.js",
+            "tsConfig": "apps/material-app/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "material-app-e2e": {
+      "root": "apps/material-app-e2e",
+      "sourceRoot": "apps/material-app-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/material-app-e2e/cypress.json",
+            "tsConfig": "apps/material-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "material-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "material-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/material-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/material-app-e2e/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -182,6 +267,6 @@
     },
     "defaultCollection": "@nrwl/react"
   },
-  "schematics": {},
+  "schematics": {"@nrwl/next":{"application":{"style":"styled-components","linter":"tslint"}}},
   "defaultProject": "david-murdoch-bbc-test"
 }

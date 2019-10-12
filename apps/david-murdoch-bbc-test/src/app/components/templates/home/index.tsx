@@ -17,7 +17,7 @@ const Home: FunctionComponent<{}> = () => {
   ) : (
     <ol>
       {data.articles.map(({ id, title }) => (
-        <Heading invariant="li" key={`${id}-${title}`}>
+        <Heading variant="li" key={`${id}-${title}`}>
           <Link to={`/${parseInt(id, 10) + 1}`}>{title}</Link>
         </Heading>
       ))}
