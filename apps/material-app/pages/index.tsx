@@ -1,9 +1,7 @@
 import React from 'react';
 
-import Drawer from '../components/reponsive-drawer';
-
 export const Index = () => {
-  return <Drawer>hello</Drawer>;
+  return <div>hello</div>;
 };
 
 export default Index;
