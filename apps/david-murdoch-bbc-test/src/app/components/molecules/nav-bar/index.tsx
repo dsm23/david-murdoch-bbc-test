@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Brand from '@bbc/psammead-brand';
 import { news } from '@bbc/psammead-assets/svgs';
 import Navigation, {
@@ -9,7 +9,10 @@ import Navigation, {
 import { latin } from '@bbc/gel-foundations/scripts';
 import { C_POSTBOX, C_WHITE } from '@bbc/psammead-styles/colours';
 
-const NavBar: FunctionComponent<RouteComponentProps> = ({ location }) => (
+const NavBar: FunctionComponent<{}> = () => {
+  const location = useLocation();
+  
+  return (
   <>
     <Brand
       product="BBC News"
@@ -49,6 +52,7 @@ const NavBar: FunctionComponent<RouteComponentProps> = ({ location }) => (
       </NavigationUl>
     </Navigation>
   </>
-);
+  );
+};
 
-export default withRouter(NavBar);
+export default NavBar;
