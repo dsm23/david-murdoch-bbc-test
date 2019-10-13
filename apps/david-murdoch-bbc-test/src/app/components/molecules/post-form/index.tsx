@@ -3,12 +3,14 @@ import { Form, Field } from 'react-final-form';
 import {
   Button,
   CircularProgress,
-  Slider,
   Snackbar,
   Typography,
 } from '@material-ui/core';
 
-import { MaterialSnackbarContentWrapper } from '@david-murdoch-bbc-test/shared-components';
+import {
+  FinalFormSlider,
+  MaterialSnackbarContentWrapper,
+} from '@david-murdoch-bbc-test/shared-components';
 
 import { environment } from '../../../../environments/environment';
 
@@ -36,7 +38,6 @@ const PostForm = ({ initialValues, onSubmit }) => {
       {({
         values,
         handleSubmit,
-        form: { change },
         submitting,
         submitFailed,
         submitSucceeded,
@@ -45,22 +46,7 @@ const PostForm = ({ initialValues, onSubmit }) => {
           <Typography variant="h6" id="input-slider" gutterBottom>
             Rate this Article ({values.rank}/10)
           </Typography>
-          <Field name="rank">
-            {({ input }) => (
-              <>
-                <Slider
-                  {...input}
-                  onChange={(_, newValue) => change(input.name, newValue)}
-                  valueLabelDisplay="auto"
-                  marks
-                  step={1}
-                  min={1}
-                  max={10}
-                  aria-labelledby="input-slider"
-                />
-              </>
-            )}
-          </Field>
+          <Field name="rank" component={FinalFormSlider} />
           <Button variant="contained" color="secondary" fullWidth type="submit">
             Submit
           </Button>

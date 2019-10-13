@@ -3,11 +3,12 @@ import App from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '../components/reponsive-drawer';
 
 import withApollo from '../lib/withApollo';
 
-import { theme } from '../theme';
+import { ResponsiveDrawer as Drawer } from '@david-murdoch-bbc-test/shared-components';
+
+import { theme } from '@david-murdoch-bbc-test/theme';
 
 class MyApp extends App {
   componentDidMount() {

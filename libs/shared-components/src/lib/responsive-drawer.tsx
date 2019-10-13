@@ -68,7 +68,7 @@ interface ResponsiveDrawerProps {
   container?: Element;
 }
 
-const ReponsiveDrawer: FunctionComponent<ResponsiveDrawerProps> = props => {
+const ResponsiveDrawer: FunctionComponent<ResponsiveDrawerProps> = props => {
   const { children, container } = props;
   const theme = useTheme();
   const classes = useStyles(theme);
@@ -164,4 +164,4 @@ const ReponsiveDrawer: FunctionComponent<ResponsiveDrawerProps> = props => {
   );
 };
 
-export default ReponsiveDrawer;
+export { ResponsiveDrawer };

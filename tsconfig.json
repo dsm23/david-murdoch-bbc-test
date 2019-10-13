@@ -23,6 +23,9 @@
     "paths": {
       "@david-murdoch-bbc-test/shared-components": [
         "libs/shared-components/src/index.ts"
+      ],
+      "@david-murdoch-bbc-test/theme": [
+        "libs/theme/src/index.ts"
       ]
     },
     "resolveJsonModule": true,
