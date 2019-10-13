@@ -5,9 +5,11 @@ import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '../components/reponsive-drawer';
 
+import withApollo from '../lib/withApollo';
+
 import { theme } from '../theme';
 
-export default class MyApp extends App {
+class MyApp extends App {
   componentDidMount() {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -35,3 +37,5 @@ export default class MyApp extends App {
     );
   }
 }
+
+export default withApollo(MyApp);

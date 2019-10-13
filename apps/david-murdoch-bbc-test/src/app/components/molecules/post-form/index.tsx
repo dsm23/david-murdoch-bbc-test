@@ -8,7 +8,7 @@ import {
   Typography,
 } from '@material-ui/core';
 
-import MaterialSnackbarContentWrapper from '../material-snackerbar-content-wrapper';
+import { MaterialSnackbarContentWrapper } from '@david-murdoch-bbc-test/shared-components';
 
 import { environment } from '../../../../environments/environment';
 

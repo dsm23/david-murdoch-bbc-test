@@ -258,6 +258,34 @@
           }
         }
       }
+    },
+    "shared-components": {
+      "root": "libs/shared-components",
+      "sourceRoot": "libs/shared-components/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared-components/tsconfig.lib.json",
+              "libs/shared-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared-components/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared-components/jest.config.js",
+            "tsConfig": "libs/shared-components/tsconfig.spec.json"
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -267,6 +295,13 @@
     },
     "defaultCollection": "@nrwl/react"
   },
-  "schematics": {"@nrwl/next":{"application":{"style":"styled-components","linter":"tslint"}}},
+  "schematics": {
+    "@nrwl/next": {
+      "application": {
+        "style": "styled-components",
+        "linter": "tslint"
+      }
+    }
+  },
   "defaultProject": "david-murdoch-bbc-test"
 }

@@ -28,6 +28,11 @@
     },
     "material-app-e2e": {
       "tags": []
+    },
+    "shared-components": {
+      "tags": [
+        "frontend"
+      ]
     }
   }
 }

@@ -7,6 +7,7 @@ import Navigation, {
   NavigationLi,
 } from '@bbc/psammead-navigation';
 import { latin } from '@bbc/gel-foundations/scripts';
+import { C_POSTBOX, C_WHITE } from '@bbc/psammead-styles/colours';
 
 const NavBar: FunctionComponent<RouteComponentProps> = ({ location }) => (
   <>
@@ -19,6 +20,8 @@ const NavBar: FunctionComponent<RouteComponentProps> = ({ location }) => (
       svg={news}
       url="https://www.bbc.co.uk/news"
       borderBottom
+      backgroundColour={C_POSTBOX}
+      logoColour={C_WHITE}
     />
     <Navigation script={latin} skipLinkText="Skip to content" service="news">
       <NavigationUl>
