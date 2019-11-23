@@ -26,6 +26,9 @@
       ],
       "@david-murdoch-bbc-test/theme": [
         "libs/theme/src/index.ts"
+      ],
+      "@david-murdoch-bbc-test/fragment-types": [
+        "libs/fragment-types/src/index.ts"
       ]
     },
     "resolveJsonModule": true,

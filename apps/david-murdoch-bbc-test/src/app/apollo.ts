@@ -8,8 +8,7 @@ import { HttpLink } from 'apollo-link-http';
 import { WebSocketLink } from 'apollo-link-ws';
 import { getMainDefinition, toIdValue } from 'apollo-utilities';
 
-// HACK: so that apollo client can understand the ModelUnionType
-import introspectionQueryResultData from './fragmentTypes.json';
+import { introspectionQueryResultData } from '@david-murdoch-bbc-test/fragment-types';
 
 import { environment } from '../environments/environment';
 
@@ -40,7 +39,8 @@ const wsLink = new WebSocketLink({
 const terminatingLink = split(
   // split based on operation type
   ({ query }) => {
-    const { kind, operation } = getMainDefinition(query);
+    // typescript issue
+    const { kind, operation }: any = getMainDefinition(query);
     return kind === 'OperationDefinition' && operation === 'subscription';
   },
   wsLink,

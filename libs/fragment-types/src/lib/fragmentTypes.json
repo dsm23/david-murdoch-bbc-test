@@ -1,0 +1,48 @@
+{
+  "__schema": {
+    "types": [
+      {
+        "kind": "UNION",
+        "name": "Model",
+        "possibleTypes": [
+          {
+            "name": "Image"
+          },
+          {
+            "name": "List"
+          },
+          {
+            "name": "Typography"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "IImage",
+        "possibleTypes": [
+          {
+            "name": "Image"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "IList",
+        "possibleTypes": [
+          {
+            "name": "List"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "ITypography",
+        "possibleTypes": [
+          {
+            "name": "Typography"
+          }
+        ]
+      }
+    ]
+  }
+}

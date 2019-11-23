@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 
-import FinalFormSlider from './final-form-slider';
+import { FinalFormSlider } from './final-form-slider';
 
 describe(' FinalFormSlider', () => {
   afterEach(cleanup);

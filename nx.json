@@ -38,6 +38,11 @@
       "tags": [
         "frontend"
       ]
+    },
+    "fragment-types": {
+      "tags": [
+        "frontend"
+      ]
     }
   }
 }
