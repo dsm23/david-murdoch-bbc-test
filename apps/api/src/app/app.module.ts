@@ -3,8 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 
 import { ArticlesModule } from './articles/articles.module';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { environment } from '../environments/environment';
 
 @Module({
   imports: [
@@ -12,12 +11,8 @@ import { AppService } from './app.service';
     GraphQLModule.forRoot({
       installSubscriptionHandlers: true,
       autoSchemaFile: 'schema.gql',
-      // subscriptions: {
-      //   path: '/graphql',
-      // },
+      playground: !environment.production,
     }),
   ],
-  // controllers: [AppController],
-  // providers: [AppService],
 })
 export class AppModule {}

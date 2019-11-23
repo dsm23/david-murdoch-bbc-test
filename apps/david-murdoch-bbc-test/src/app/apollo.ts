@@ -7,6 +7,8 @@ import { ApolloLink, split } from 'apollo-link';
 import { HttpLink } from 'apollo-link-http';
 import { WebSocketLink } from 'apollo-link-ws';
 import { getMainDefinition, toIdValue } from 'apollo-utilities';
+import { persistCache } from 'apollo-cache-persist';
+import { Store, del, get, set } from 'idb-keyval';
 
 import { introspectionQueryResultData } from '@david-murdoch-bbc-test/fragment-types';
 
@@ -20,9 +22,7 @@ const httpLink = new HttpLink({
   uri: environment.endPoint,
   headers: {
     // CORB: https://www.chromium.org/Home/chromium-security/corb-for-developers
-
-    // Is not working, unknown why
-    // 'Content-Type': 'application/json',
+    'content-type': 'application/json',
     'X-Content-Type-Options': 'nosniff',
     'client-name': 'David Murdoch BBC [web]',
     'client-version': '1.0.0',
@@ -59,6 +59,20 @@ const cache = new InMemoryCache({
         ),
     },
   },
+});
+const customStore = new Store(
+  'david-murdoch-bbc-test-store',
+  'david-murdoch-bbc-test',
+);
+
+persistCache({
+  cache,
+  storage: {
+    getItem: key => get(key, customStore),
+    setItem: (key, value) => set(key, value, customStore),
+    removeItem: key => del(key, customStore),
+  },
+  trigger: 'background',
 });
 
 const client = new ApolloClient({
