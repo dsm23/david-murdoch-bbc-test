@@ -21,9 +21,6 @@
               "apps/david-murdoch-bbc-test/src/favicon.ico",
               "apps/david-murdoch-bbc-test/src/assets"
             ],
-            "styles": [
-              "apps/david-murdoch-bbc-test/src/styles.scss"
-            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/babel"
           },

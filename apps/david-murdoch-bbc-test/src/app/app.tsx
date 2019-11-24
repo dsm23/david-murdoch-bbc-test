@@ -3,8 +3,6 @@ import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { CssBaseline, Container } from '@material-ui/core';
 
-import './app.scss';
-
 import { client } from './apollo';
 
 import NavBar from './components/molecules/nav-bar';
