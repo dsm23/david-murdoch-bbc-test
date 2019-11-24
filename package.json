@@ -1,6 +1,8 @@
 {
   "name": "david-murdoch-bbc-test",
+  "author": "David Murdoch",
   "version": "0.0.1",
+  "homepage": "https://master.d3gc7en12rn82g.amplifyapp.com",
   "license": "MIT",
   "bin": {
     "generate-schema": "bin/generate.js"
