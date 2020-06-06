@@ -59,7 +59,7 @@
     "apollo-client": "^2.6.3",
     "apollo-link-http": "^1.5.15",
     "apollo-link-ws": "^1.0.18",
-    "apollo-server-express": "^2.9.12",
+    "apollo-server-express": "^2.14.2",
     "class-transformer": "^0.2.3",
     "clsx": "^1.0.4",
     "document-register-element": "1.14.3",
