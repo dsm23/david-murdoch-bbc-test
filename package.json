@@ -45,7 +45,7 @@
     "@material-ui/core": "^4.7.0",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.6.0",
-    "@nestjs/common": "^6.10.1",
+    "@nestjs/common": "^7.6.5",
     "@nestjs/core": "^6.10.1",
     "@nestjs/graphql": "^6.4.1",
     "@nestjs/platform-express": "^6.10.1",
