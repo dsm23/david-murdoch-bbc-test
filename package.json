@@ -82,7 +82,7 @@
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.5.2",
     "styled-components": "^4.4.1",
-    "subscriptions-transport-ws": "^0.9.16",
+    "subscriptions-transport-ws": "^0.9.19",
     "type-graphql": "^0.17.4"
   },
   "devDependencies": {
