@@ -48,7 +48,7 @@
     "@nestjs/common": "^6.10.1",
     "@nestjs/core": "^6.10.1",
     "@nestjs/graphql": "^6.4.1",
-    "@nestjs/platform-express": "^6.10.1",
+    "@nestjs/platform-express": "^8.4.0",
     "@zeit/next-css": "1.0.1",
     "@zeit/next-less": "1.0.1",
     "@zeit/next-sass": "1.0.1",
